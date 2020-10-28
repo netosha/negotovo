@@ -96,6 +96,7 @@ export default function Login(){
                             name={'code'}
                             mask={'999999'}
                             id={'code'}
+                            maskChar={" "}
                             value={code}
                             style={{marginTop:20}}
                             onChange={e => setCode(e.target.value)}
