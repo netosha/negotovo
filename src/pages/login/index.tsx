@@ -16,7 +16,7 @@ export default function Login(){
     React.useEffect(() => {
         (window as any).recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
             'size': 'invisible',
-            'callback':() => setCodeSended(true),
+            'callback':() => console.log('captcha verivied successfully'),
         });
     }, [])
 
@@ -46,8 +46,10 @@ export default function Login(){
                 // SMS sent. Prompt user to type the code from the message, then sign the
                 // user in with confirmationResult.confirm(code).
                 confirmationResultRef.current = confirmationResult
+                setCodeSended(true)
                 console.log(confirmationResult)
             }).catch((error:any) => {
+                alert('Failed to send code')
                 console.log(error)
             })
     }
@@ -90,12 +92,11 @@ export default function Login(){
                             <br />
                             <a className={styles.number}>{number}</a>
                         </a>
-                        <InputMask
-                            mask={"999999"}
+                        <input
                             name={'code'}
                             id={'code'}
+                            type={'number'}
                             value={code}
-                            maskChar={''}
                             style={{marginTop:20}}
                             onChange={e => setCode(e.target.value)}
                             placeholder={"0 0 0 0 0 0"}
