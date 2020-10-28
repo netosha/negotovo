@@ -1,0 +1,48 @@
+@import "../../styles/variables";
+
+.wrapper{
+  display: flex;
+  flex-direction: column;
+}
+
+.title{
+  display: flex;
+  align-items: center;
+  color:$text;
+  font-weight: 700;
+  font-size: 26px;
+}
+
+.add_icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 12px;
+  cursor: pointer;
+
+  &:hover{
+    color:rgb(215, 87, 69);
+  }
+}
+
+.add_icon[data-active=true]{
+  color:rgb(215, 87, 69);
+}
+
+.meals_container{
+  margin:20px 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.sample_meal_box{
+  display: flex;
+  width: 100%;
+  background: red;
+}
+.sample_meal_cover{
+  width: 180px;
+  height: 180px;
+}
+

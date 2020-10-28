@@ -1,0 +1,52 @@
+.page{
+  min-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+}
+
+.content{
+  max-width: 580px;
+  padding:20px 12px 0px 12px;
+  width: 100%;
+}
+
+.phone_section{
+  display: flex;
+  flex-direction: column;
+}
+
+.title{
+  margin-top:20px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.input{
+  padding:7px 0px;
+  font-size: 30px;
+  border-bottom: 2px solid rgb(238, 238, 238);
+
+  &:focus{
+    border-bottom: 2px solid rgb(239, 184, 175);
+  }
+}
+
+.number{
+  color:rgb(215, 87, 69);
+}
+
+.button{
+  border-radius: 9999px;
+  background: rgb(18, 18, 18);
+  color:white;
+  font-size: 17px;
+  padding:18px 24px;
+}
+
+.button[disabled]{
+  cursor: auto;
+  color:rgb(238, 238, 238);
+  background: rgb(196, 196, 196);
+}
