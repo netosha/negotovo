@@ -12,7 +12,6 @@ export default function Login(){
     const [code, setCode] = React.useState<string>("")
     const phoneRegex = /^(\+7)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/g
     const confirmationResultRef = React.useRef<any>(null)
-    const user = firebase.auth().currentUser;
 
     React.useEffect(() => {
         (window as any).recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
@@ -25,24 +24,18 @@ export default function Login(){
         console.log(code)
         console.log(code.replace(' ','').length)
         if(code.replace(' ','').length === 6){
-            confirmationResultRef.current.confirm(code).then(function (result:any) {
+            confirmationResultRef.current.confirm(code.replace(' ', '')).then(function (result:any) {
                 // User signed in successfully.
                 var user = result.user;
                 console.log(user)
                 alert('authorized')
                 history.push('/')
             }).catch((error:any) => {
-               console.log(error)
+                alert('Wrong code')
+                console.log(error)
             });
         }
     }, [code])
-
-    React.useEffect(() => {
-        console.log(user)
-        if(user){
-            history.push('/')
-        }
-    }, [user])
 
 
     firebase.auth().languageCode = 'ru';
@@ -58,7 +51,6 @@ export default function Login(){
                 console.log(error)
             })
     }
-
 
     return (
         <div className={styles.page}>
@@ -99,11 +91,11 @@ export default function Login(){
                             <a className={styles.number}>{number}</a>
                         </a>
                         <InputMask
+                            mask={"999999"}
                             name={'code'}
                             id={'code'}
                             value={code}
-                            mask="999999"
-                            maskChar={' '}
+                            maskChar={''}
                             style={{marginTop:20}}
                             onChange={e => setCode(e.target.value)}
                             placeholder={"0 0 0 0 0 0"}
