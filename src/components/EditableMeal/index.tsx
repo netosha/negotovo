@@ -151,6 +151,7 @@ export default function EditableMeal(props:{meal?:types.Meal | any, onEdit:() =>
                         className={styles.input}
                     />
                     <input
+                        value={emoji}
                         onChange={e => setEmoji(e.target.value)}
                         style={{marginLeft:12, maxWidth:25}}
                         placeholder={'💅'}

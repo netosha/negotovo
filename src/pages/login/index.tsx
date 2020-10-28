@@ -82,7 +82,7 @@ export default function Login(){
                             className={styles.button}
                             style={{marginTop:20}}
                         >
-                            Получить номер
+                            Потеребить сервак гугла для кода
                         </button>
                     </div>
                     :
