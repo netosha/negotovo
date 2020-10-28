@@ -8,7 +8,6 @@ import { useHistory } from 'react-router-dom';
 export default function Login(){
     const history = useHistory()
     const [number, setNumber] = React.useState<string>("")
-    const [test, setTest] = React.useState<string>("")
     const [codeSended, setCodeSended] = React.useState<boolean>(false)
     const [code, setCode] = React.useState<string>("")
     const phoneRegex = /^(\+7)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/g
@@ -24,7 +23,7 @@ export default function Login(){
     React.useEffect(() => {
         console.log(code)
         console.log(code.replace(' ','').length)
-        if(code.replace(' ','').length === 6){
+        if(/^[0-9]{1,6}$/g.test(code)){
             confirmationResultRef.current.confirm(code.replace(' ', '')).then(function (result:any) {
                 // User signed in successfully.
                 var user = result.user;
@@ -85,17 +84,6 @@ export default function Login(){
                         >
                             Получить номер
                         </button>
-                        <InputMask
-                            name={'code'}
-                            mask={'999999'}
-                            id={'code'}
-                            maskChar={' '}
-                            value={test}
-                            style={{marginTop:20}}
-                            onChange={e => setTest(e.target.value)}
-                            placeholder={"0 0 0 0 0 0"}
-                            className={styles.input}
-                        />
                     </div>
                     :
                     <div className={styles.phone_section}>
@@ -108,7 +96,6 @@ export default function Login(){
                             name={'code'}
                             mask={'999999'}
                             id={'code'}
-                            type={'number'}
                             value={code}
                             style={{marginTop:20}}
                             onChange={e => setCode(e.target.value)}
