@@ -50,12 +50,12 @@ export default function Meal(props:{meal:types.Meal}){
                     <a className={styles.emoji}>
                         {meal.emoji}
                     </a>
-                </div>
-                {user &&
-                    <div className={styles.edit_button} onClick={e => setEditMode(!editMode)} style={{marginTop:12}}>
+                    {user &&
+                    <div className={styles.edit_button} onClick={e => setEditMode(!editMode)} style={{marginLeft:12}}>
                         <Edit3/>
                     </div>
-                }
+                    }
+                </div>
 
             </div>
 
