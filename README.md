@@ -2,11 +2,16 @@
 
 ## Result
 
-> React application [link]()
+> Preview [link](https://negotovo.netlify.app/)
 
 
-## Instalation
-
+## Install and run
 `
 npm i
 `
+
+`
+npm run-script start
+`
+
+
