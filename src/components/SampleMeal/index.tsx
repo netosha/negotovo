@@ -29,7 +29,6 @@ export default function SampleMeal(props:{onCreate:() => void}){
             alert("Title should be not empty")
             return false
         }else if(!measureUnit.trim()){
-            console.log(measureUnit)
             alert("MeasureUnit unit should be not empty")
             return false
         }else if(isNaN(parseInt(measureValue))){
@@ -72,10 +71,6 @@ export default function SampleMeal(props:{onCreate:() => void}){
     }
 
 
-    const test = () => {
-        console.log(isNaN(parseInt(measureValue)))
-    }
-
     return (
         <div className={styles.wrapper}>
             <div className={styles.cover_wrapper}>
@@ -105,7 +100,7 @@ export default function SampleMeal(props:{onCreate:() => void}){
                                 if (file) {
                                     file.progress((info:any) => console.log('File progress: ', info.progress))
                                     file.done((info:any) => {
-                                        console.log('File uploaded: ', info)
+                                        // console.log('File uploaded: ', info)
                                         setFile(info)
                                     })
                                 }

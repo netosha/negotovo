@@ -25,7 +25,7 @@ export default function EditableMeal(props:{meal?:types.Meal | any, onEdit:() =>
             alert("Title should be not empty")
             return false
         }else if(!measureUnit.trim()){
-            console.log(measureUnit)
+            // console.log(measureUnit)
             alert("MeasureUnit unit should be not empty")
             return false
         }else if(isNaN(parseInt(measureValue))){
@@ -38,7 +38,7 @@ export default function EditableMeal(props:{meal?:types.Meal | any, onEdit:() =>
             alert("Wow! You pick wrong MealKind with select. Congrats!")
             return false
         }
-        console.log(Number(measureValue))
+        // console.log(Number(measureValue))
 
         return true
     }
@@ -46,7 +46,7 @@ export default function EditableMeal(props:{meal?:types.Meal | any, onEdit:() =>
 
     function editMeal(){
         const currentCategory = firestore.doc(`/categories/${category?.title?.toLowerCase()}`)
-        console.log(meal.categories.map((c:any) => c.ref))
+        // console.log(meal.categories.map((c:any) => c.ref))
         if (!isValuesValid()){
             return
         }
@@ -70,10 +70,6 @@ export default function EditableMeal(props:{meal?:types.Meal | any, onEdit:() =>
         editItem()
     }
 
-
-    const test = () => {
-        console.log(kind)
-    }
 
     return (
         <div className={styles.wrapper}>
