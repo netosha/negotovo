@@ -3,6 +3,7 @@ import styles from './Index.module.scss'
 import Header from "../components/Header";
 import Category from "../components/Category";
 import {useCategories} from '../hooks/useCategories'
+import * as types from '../types'
 import { useMeals } from "../hooks/useMeals";
 
 function Index(){
@@ -11,7 +12,7 @@ function Index(){
         <div className={styles.page}>
             <Header />
             <div className={styles.content}>
-                {categories?.map((c, index) => (
+                {categories?.sort((a:types.Category, b:types.Category) => a.order - b.order).map((c, index) => (
                     <Category
                         key={index}
                         category={c}

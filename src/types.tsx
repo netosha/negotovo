@@ -19,7 +19,7 @@ export enum MealKind {
     garnish = 'garnish',
 }
 
-export interface MealCategory {
+    export interface MealCategory {
     ref: FieldRef;
     order?: number;
 }
